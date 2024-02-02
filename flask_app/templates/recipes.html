@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/recipe.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Welcome to the dashboard, {{current_user.first_name}}</h1>
+    <div class="center_column">
+        <table class="cocktail_table">
+            <thead>
+                <th>Cocktail</th>
+                <th>Cocktail ID:</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {% for recipe in recipes %}
+                <tr>
+                    <td>{{recipe.name}}</td>
+                    <td>{{recipe.creator.first_name}}</td>
+                    <td><a style="color:blue; font-weight: bold" href="/recipes/{{recipe.id}}">view recipe </a>
+                        {% if session["user_id"] == recipe.user_id %}
+                        <a style="color:red; font-weight: bold" href="/recipes/delete/{{recipe.id}}">delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="bottom_bar">
+        <a href="/logout" class="btn">Logout</a>
+    </div>
+</body>
+</html>

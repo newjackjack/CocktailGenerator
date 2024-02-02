@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="top_bar">
+            <h1>Cocktail Generator</h1>
+        </div>
+        <div class="intro">
+            <p>Don't have an idea of what to drink?</p>
+            <p>Here is the cocktail of tonight</p>
+        </div>
+        <form action="/create/cocktail" method="post" class="form_section">
+            <button type="submit" class="cocktail_btn">Create a random cocktail</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+*{
+    background-color: black;
+    color:beige;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "MORF" 25,
+    "SHLN" 5;
+}
+
+.top_bar{
+    /* display:flex; */
+    margin: 10vh 4vw;
+    text-align: center;
+}
+.top_bar h1{
+    font-size: 8em;
+}
+.reg .log{
+    text-align: center;
+    width: 4vw;
+}
+.intro {
+    margin: 4vh 4vw;
+    text-align: center;
+}
+.intro p {
+    font-size: 2em;
+}
+.cocktail_column{
+    margin: 4vh 4vw;
+    text-align: center;
+    color:beige;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+    "MORF" 50,
+    "SHLN" 5;
+}
+.cocktail_img{
+    height: 50vh;
+}
+.ingredient_table{
+    display:flex;
+    margin: 4vh 4vw;
+    justify-content: center;
+}
+.form_section{
+    margin: 4vh 4vw;
+    text-align: center;
+}
+.bottom{
+    margin: 4vh;
+    display:flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.cocktail_btn{
+    font-size: 2em;
+    border-radius: 5px;
+    background-color: blanchedalmond;
+    box-shadow: 2px 2px 2px 2px rgb(35, 189, 245);
+    padding:2px;
+    cursor: pointer;
+}
+.cocktail_category{
+    font-size: 4em;
+    font-weight: 100;
+}
+.cocktail{
+    font-size: 2em;
+    font-weight: 100;
+    font-family: "Single Day", cursive;
+    font-style: normal;
+    color:antiquewhite
+}
+.cocktail_details{
+    font-family: "Single Day", cursive;
+    font-weight: 200;
+    font-style: normal;
+    color:antiquewhite
+}
+.cocktail_instruction{
+    font-family: "Single Day", cursive;
+    font-weight: 200;
+    font-style: normal;
+    color:#DCDCDC
+}
+
+/* ---------- for view_recipe ------------- */
+.bottom_bar{
+    align-items: center;
+    text-align: center;
+    margin:10vh auto;
+}
+.back_btn{
+    font-size: 2em;
+    border-radius: 5px;
+    background-color: blanchedalmond;
+    box-shadow: 2px 2px 2px 2px rgb(35, 189, 245);
+    padding:2px;
+    cursor: pointer;
+}

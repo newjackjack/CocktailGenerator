@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF,SHLN@24,20.2&family=Nabla:EDPT,EHLT@0,4&family=Single+Day&display=swap" rel="stylesheet">
+</head>
+<body>
+</head>
+</head>
+<body>
+    <div class="cocktail_column">
+        {% if cocktail.strAlcoholic|length > 9 %}
+        <h3 class="cocktail_category">Non-Alcoholic: {{cocktail.strDrink}}</h3>
+        {% endif %}
+        {% if cocktail.strAlcoholic|length == 9 %}
+        <h3 class="cocktail_category">Cocktail: {{cocktail.strDrink}}</h3>
+        {% endif %}
+        <div class="cocktail">
+            <img src="{{cocktail.strDrinkThumb}}" alt="img of cocktail" class="cocktail_img">
+            <div class="cocktail_details">
+                <p>Cocktail glass: {{cocktail.strGlass}}</p>
+                <table class="ingredient_table">
+                    <tr>
+                        <th>Ingredient:</th>
+                        <th>Measure:</th>
+                    </tr>
+                    <tr>
+                        <td>{{cocktail.strIngredient1}}</td>
+                        <td>{{cocktail.strMeasure1}}</td>
+                    </tr>
+                    {% for i in range(2,16) %}
+                    <tr>
+                        {% if cocktail["strIngredient"+i|string] %}
+                        <td>{{cocktail["strIngredient"+i|string] }}</td>
+                        <td>{{cocktail["strMeasure"+i|string]}}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <p>Instructions: </p>
+                <p class="cocktail_instruction">{{cocktail.strInstructions}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom_bar">
+        <a href="/recipes" class="back_btn">Back to all recipes</a>
+    </div>
+</body>
+</html>

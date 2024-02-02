@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="top_bar">Register or Login to save cocktail</h1>
+    <div class="middle_column">
+        <div class="left_column">
+            <h1>Registration</h1>
+            <form action="/users/registration" method="post" class="form">
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" class="input">
+                <br><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" class="input">
+                <br><br>
+                <label for="email">Email:</label>
+                <input type="text" name="email" class="input">
+                <br><br>
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="input">
+                <br><br>
+                <label for="confirm_password">Confirm Password: </label>
+                <input type="password" name="confirm_password" class="input">
+                <br><br>
+                <button type="submit" class="btn">Register</button>
+            </form>
+            {% with messages = get_flashed_messages(category_filter=["validate_recipe"]) %}
+            {% if messages  %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {% with messages = get_flashed_messages(category_filter=["registration"]) %}
+            {% if messages  %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+        <div class="left_column">
+            <h1>Login</h1>
+            <form action="/users/login" method="post" class="form">
+                <label for="email">Email:</label>
+                <input type="text" name="email" class="input">
+                <br><br>
+                <label for="password">Password: </label>
+                <input type="password" name="password" class="input">
+                <br><br>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            {% with messages = get_flashed_messages(category_filter=["login"]) %}
+            {% if messages  %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    <!-- Put home btn -->
+    <div class="bottom_bar">
+        <a href="/" class="home_btn">Home</a>
+    </div>
+</body>
+</html>

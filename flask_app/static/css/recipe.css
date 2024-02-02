@@ -1,0 +1,45 @@
+*{
+    background-color: black;
+    color:beige;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "MORF" 25,
+    "SHLN" 5;
+}
+h1{
+    margin: 10vh 4vw;
+    text-align: center;
+    font-size: 4em;
+}
+.cocktail_table{
+    text-align: center;
+}
+th{
+    font-size: 2.5em;
+    border: 2px white;
+}
+td{
+    font-size: 1.5em;
+}
+.center_column{
+    margin: 0vh 4vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.bottom_bar{
+    align-items: center;
+    text-align: center;
+    margin:10vh auto;
+}
+.btn{
+    font-size: 2em;
+    border-radius: 5px;
+    background-color: blanchedalmond;
+    box-shadow: 2px 2px 2px 2px rgb(35, 189, 245);
+    padding:2px;
+    cursor: pointer;
+}

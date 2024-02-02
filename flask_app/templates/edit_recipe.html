@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Add a New Recipe!</h1>
+    {% with messages = get_flashed_messages(category_filter=["validate_recipe"]) %}
+    {% if messages  %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <a href="/recipes">back to recipes</a><br><a href="/logout">log out</a>
+    <div>
+        <form action="/recipes/edit" method="post">
+            <label for="name">Name of recipe: </label>
+            <input type="text" name="name" value="{{recipe.name}}">
+            <br><br>
+            <input type="hidden" name="id" value="{{recipe.id}}">
+            <label for="description">Description: </label>
+            <textarea name="description" cols="30" rows="10">{{recipe.description}}</textarea>
+            <br><br>
+            <label for="instruction">Instruction: </label>
+            <textarea name="instruction" cols="30" rows="10">{{recipe.instruction}}</textarea>
+            <br><br>
+            <label for="name">Date Cooked/Made: </label>
+            <input type="date" name="date_created" value="{{recipe.date_created}}">
+            <br><br>
+            <legend>Under 30 minutes?</legend>
+            <label for="yes">Yes</label>
+            <input type="radio" name="under_thirty_minutes" value="yes" 
+            {% if "yes" in recipe.under_thirty_minutes %}
+            checked
+            {% endif %}>
+            
+            <label for="no">No</label>
+            <input type="radio" name="under_thirty_minutes" value="no"
+            {% if "no" in recipe.under_thirty_minutes %}
+            checked
+            {% endif %}> 
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
